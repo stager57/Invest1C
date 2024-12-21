@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>БрокерскийСчет</dataPath>
+			<field>БрокерскийСчет</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Прибыль</dataPath>
+			<field>Прибыль</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прибыль</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НалогУдержан</dataPath>
+			<field>НалогУдержан</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ПрибыльОстатки.БрокерскийСчет КАК БрокерскийСчет,
+	ВЫБОР
+		КОГДА ПрибыльОстатки.НалогУдержан
+			ТОГДА ПрибыльОстатки.СуммаОстаток
+		ИНАЧЕ ПрибыльОстатки.СуммаОстаток - ПрибыльОстатки.СуммаОстаток * 0.13
+	КОНЕЦ КАК Прибыль
+ИЗ
+	РегистрНакопления.Прибыль.Остатки КАК ПрибыльОстатки</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных2</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Инструмент</dataPath>
+			<field>Инструмент</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаОстаток</dataPath>
+			<field>СуммаОстаток</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>БрокерскийСчет</dataPath>
+			<field>БрокерскийСчет</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ДвижениеЦБОстатки.Инструмент КАК Инструмент,
+	ДвижениеЦБОстатки.СуммаОстаток КАК СуммаОстаток
+ИЗ
+	РегистрНакопления.ДвижениеЦБ.Остатки КАК ДвижениеЦБОстатки</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных3</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КодЦБ</dataPath>
+			<field>КодЦБ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Инструмент</dataPath>
+			<field>Инструмент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>БрокерскийСчет</dataPath>
+			<field>БрокерскийСчет</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПоследняяЦена</dataPath>
+			<field>ПоследняяЦена</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Последняя цена</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИнструментА</dataPath>
+			<field>ИнструментА</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Инструмент А</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоОстаток</dataPath>
+			<field>КоличествоОстаток</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтоимостьЗакрытия</dataPath>
+			<field>СтоимостьЗакрытия</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Стоимость закрытия</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	КотировкиЦБСрезПоследних.ЦенаЗакрытия КАК ПоследняяЦена,
+	ДвижениеЦБОстатки.Инструмент КАК ИнструментА,
+	ДвижениеЦБОстатки.КоличествоОстаток КАК КоличествоОстаток,
+	КотировкиЦБСрезПоследних.ЦенаЗакрытия * ДвижениеЦБОстатки.КоличествоОстаток КАК СтоимостьЗакрытия
+ИЗ
+	РегистрСведений.КотировкиЦБ.СрезПоследних КАК КотировкиЦБСрезПоследних
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрНакопления.ДвижениеЦБ.Остатки КАК ДвижениеЦБОстатки
+		ПО КотировкиЦБСрезПоследних.КодЦБ = ДвижениеЦБОстатки.Инструмент.КодЦеннойБумаги</query>
+	</dataSet>
+	<totalField>
+		<dataPath>Прибыль</dataPath>
+		<expression>Сумма(Прибыль)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаОстаток</dataPath>
+		<expression>Сумма(СуммаОстаток)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СтоимостьЗакрытия</dataPath>
+		<expression>Сумма(СтоимостьЗакрытия)</expression>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ИнструментА.СекторЭкономики</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтоимостьЗакрытия</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Море</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>БрокерскийСчет</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>БрокерскийСчет</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Прибыль</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+			</dcsset:item>
+			<dcsset:item xsi:type="dcsset:StructureItemChart">
+				<dcsset:point>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Инструмент.СекторЭкономики</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>СуммаОстаток</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Инструмент.СекторЭкономики</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+				</dcsset:point>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаОстаток</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Инвестировано</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТипДиаграммы</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:ChartType">Pie</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+			</dcsset:item>
+			<dcsset:item xsi:type="dcsset:StructureItemChart">
+				<dcsset:point>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ИнструментА.СекторЭкономики</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>СтоимостьЗакрытия</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:point>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТипДиаграммы</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:ChartType">Donut</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

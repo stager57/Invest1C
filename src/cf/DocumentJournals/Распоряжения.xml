@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<DocumentJournal uuid="bb5fb99c-e851-48c3-b5eb-d0c15750ed42">
+		<InternalInfo>
+			<xr:GeneratedType name="DocumentJournalSelection.Распоряжения" category="Selection">
+				<xr:TypeId>31130399-c6dc-4554-9f76-84e0a22c45be</xr:TypeId>
+				<xr:ValueId>2dcb8547-7c18-4bde-9762-e35a610db8cd</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DocumentJournalList.Распоряжения" category="List">
+				<xr:TypeId>6f9159cb-33ac-4a7a-b61a-6480e76db763</xr:TypeId>
+				<xr:ValueId>f38f4ac6-47a5-4cea-8100-aabbb76a9111</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DocumentJournalManager.Распоряжения" category="Manager">
+				<xr:TypeId>caa45066-db00-40fc-90a7-f712ab80759a</xr:TypeId>
+				<xr:ValueId>849947c4-a9b3-4392-8cef-aa6efae00bb1</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>Распоряжения</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Распоряжения</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<DefaultForm/>
+			<AuxiliaryForm/>
+			<UseStandardCommands>true</UseStandardCommands>
+			<RegisteredDocuments>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаявкаНаПриобретениеЦБ</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаявкаНаПродажуЦБ</xr:Item>
+			</RegisteredDocuments>
+			<IncludeHelpInContents>false</IncludeHelpInContents>
+			<ListPresentation/>
+			<ExtendedListPresentation/>
+			<Explanation/>
+		</Properties>
+		<ChildObjects>
+			<Column uuid="508fb3b0-cf55-421a-ba18-8231c35a38a1">
+				<Properties>
+					<Name>БрокерскийСчет</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Брокерский счет</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаявкаНаПриобретениеЦБ.Attribute.БрокерскийСчет</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаявкаНаПродажуЦБ.Attribute.БрокерскийСчет</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="1bb61cac-2ec5-43dd-8396-c5d7c5852715">
+				<Properties>
+					<Name>СуммаДокумента</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма документа</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаявкаНаПродажуЦБ.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ЗаявкаНаПриобретениеЦБ.Attribute.СуммаДокумента</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+		</ChildObjects>
+	</DocumentJournal>
+</MetaDataObject>

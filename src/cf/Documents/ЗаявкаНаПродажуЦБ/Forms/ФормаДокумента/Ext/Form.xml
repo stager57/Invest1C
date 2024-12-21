@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Номер" id="1">
+			<DataPath>Объект.Number</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="Дата" id="4">
+			<DataPath>Объект.Date</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="БрокерскийСчет" id="7">
+			<DataPath>Объект.БрокерскийСчет</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="БрокерскийСчетКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="БрокерскийСчетРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<InputField name="СуммаДокумента" id="10">
+			<DataPath>Объект.СуммаДокумента</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма дохода</v8:content>
+				</v8:item>
+			</Title>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="СуммаДокументаКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="СуммаДокументаРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<Table name="Инструменты" id="13">
+			<Representation>List</Representation>
+			<Footer>true</Footer>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.Инструменты</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ИнструментыКонтекстноеМеню" id="14"/>
+			<AutoCommandBar name="ИнструментыКоманднаяПанель" id="15"/>
+			<ExtendedTooltip name="ИнструментыРасширеннаяПодсказка" id="16"/>
+			<SearchStringAddition name="ИнструментыСтрокаПоиска" id="17">
+				<AdditionSource>
+					<Item>Инструменты</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ИнструментыСтрокаПоискаКонтекстноеМеню" id="18"/>
+				<ExtendedTooltip name="ИнструментыСтрокаПоискаРасширеннаяПодсказка" id="19"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ИнструментыСостояниеПросмотра" id="20">
+				<AdditionSource>
+					<Item>Инструменты</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ИнструментыСостояниеПросмотраКонтекстноеМеню" id="21"/>
+				<ExtendedTooltip name="ИнструментыСостояниеПросмотраРасширеннаяПодсказка" id="22"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ИнструментыУправлениеПоиском" id="23">
+				<AdditionSource>
+					<Item>Инструменты</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ИнструментыУправлениеПоискомКонтекстноеМеню" id="24"/>
+				<ExtendedTooltip name="ИнструментыУправлениеПоискомРасширеннаяПодсказка" id="25"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="OnStartEdit">ИнструментыПриНачалеРедактирования</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="ИнструментыНомерСтроки" id="26">
+					<DataPath>Объект.Инструменты.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ИнструментыНомерСтрокиКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ИнструментыНомерСтрокиРасширеннаяПодсказка" id="28"/>
+				</LabelField>
+				<InputField name="ИнструментыИнструмент" id="29">
+					<DataPath>Объект.Инструменты.Инструмент</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ИнструментыИнструментКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ИнструментыИнструментРасширеннаяПодсказка" id="31"/>
+					<Events>
+						<Event name="OnChange">ИнструментыИнструментПриИзменении</Event>
+					</Events>
+				</InputField>
+				<ColumnGroup name="ИнструментыГруппа1" id="62">
+					<ExtendedTooltip name="ИнструментыГруппа1РасширеннаяПодсказка" id="63"/>
+					<ChildItems>
+						<InputField name="ИнструментыКоличествоЛотов" id="32">
+							<DataPath>Объект.Инструменты.КоличествоЛотов</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ИнструментыКоличествоЛотовКонтекстноеМеню" id="33"/>
+							<ExtendedTooltip name="ИнструментыКоличествоЛотовРасширеннаяПодсказка" id="34"/>
+							<Events>
+								<Event name="OnChange">ИнструментыКоличествоЛотовПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ИнструментыКоличествоЦБВЛоте" id="59">
+							<DataPath>Объект.Инструменты.КоличествоЦБВЛоте</DataPath>
+							<Visible>false</Visible>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ИнструментыКоличествоЦБВЛотеКонтекстноеМеню" id="60"/>
+							<ExtendedTooltip name="ИнструментыКоличествоЦБВЛотеРасширеннаяПодсказка" id="61"/>
+						</InputField>
+						<InputField name="ИнструментыКоличествоЦБ" id="35">
+							<DataPath>Объект.Инструменты.КоличествоЦБ</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ИнструментыКоличествоЦБКонтекстноеМеню" id="36"/>
+							<ExtendedTooltip name="ИнструментыКоличествоЦБРасширеннаяПодсказка" id="37"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<InputField name="ИнструментыЦена" id="38">
+					<DataPath>Объект.Инструменты.Цена</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<Width>8</Width>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="ИнструментыЦенаКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="ИнструментыЦенаРасширеннаяПодсказка" id="40"/>
+					<Events>
+						<Event name="OnChange">ИнструментыЦенаПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ИнструментыСумма" id="41">
+					<DataPath>Объект.Инструменты.Сумма</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<FooterDataPath>Объект.Инструменты.TotalСумма</FooterDataPath>
+					<Width>8</Width>
+					<ContextMenu name="ИнструментыСуммаКонтекстноеМеню" id="42"/>
+					<ExtendedTooltip name="ИнструментыСуммаРасширеннаяПодсказка" id="43"/>
+					<Events>
+						<Event name="OnChange">ИнструментыСуммаПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ИнструментыКомиссияБрокера" id="44">
+					<DataPath>Объект.Инструменты.КомиссияБрокера</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<Width>8</Width>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="ИнструментыКомиссияБрокераКонтекстноеМеню" id="45"/>
+					<ExtendedTooltip name="ИнструментыКомиссияБрокераРасширеннаяПодсказка" id="46"/>
+					<Events>
+						<Event name="OnChange">ИнструментыКомиссияБрокераПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ИнструментыСуммаКомиссииБрокера" id="47">
+					<DataPath>Объект.Инструменты.СуммаКомиссииБрокера</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма
+комиссии брокера</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<FooterDataPath>Объект.Инструменты.TotalСуммаКомиссииБрокера</FooterDataPath>
+					<ContextMenu name="ИнструментыСуммаКомиссииБрокераКонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="ИнструментыСуммаКомиссииБрокераРасширеннаяПодсказка" id="49"/>
+					<Events>
+						<Event name="OnChange">ИнструментыСуммаКомиссииБрокераПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ИнструментыКомиссияБиржы" id="50">
+					<DataPath>Объект.Инструменты.КомиссияБиржи</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ИнструментыКомиссияБиржыКонтекстноеМеню" id="51"/>
+					<ExtendedTooltip name="ИнструментыКомиссияБиржыРасширеннаяПодсказка" id="52"/>
+					<Events>
+						<Event name="OnChange">ИнструментыКомиссияБиржыПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ИнструментыСуммаКомиссииБиржи" id="53">
+					<DataPath>Объект.Инструменты.СуммаКомиссииБиржи</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<FooterDataPath>Объект.Инструменты.TotalСуммаКомиссииБиржи</FooterDataPath>
+					<ContextMenu name="ИнструментыСуммаКомиссииБиржиКонтекстноеМеню" id="54"/>
+					<ExtendedTooltip name="ИнструментыСуммаКомиссииБиржиРасширеннаяПодсказка" id="55"/>
+					<Events>
+						<Event name="OnChange">ИнструментыСуммаКомиссииБиржиПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ИнструментыСуммаКомиссии" id="56">
+					<DataPath>Объект.Инструменты.СуммаКомиссии</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<FooterDataPath>Объект.Инструменты.TotalСуммаКомиссии</FooterDataPath>
+					<ContextMenu name="ИнструментыСуммаКомиссииКонтекстноеМеню" id="57"/>
+					<ExtendedTooltip name="ИнструментыСуммаКомиссииРасширеннаяПодсказка" id="58"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.ЗаявкаНаПродажуЦБ</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+	</Attributes>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>AccumulationRegister.ДвижениеДСНаСчете.StandardCommand.OpenByRecorder</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+			</Item>
+			<Item>
+				<Command>AccumulationRegister.ДвижениеЦБ.StandardCommand.OpenByRecorder</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+			</Item>
+			<Item>
+				<Command>AccumulationRegister.КомиссияБиржи.StandardCommand.OpenByRecorder</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+			</Item>
+			<Item>
+				<Command>AccumulationRegister.КомиссияБрокера.StandardCommand.OpenByRecorder</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+			</Item>
+			<Item>
+				<Command>AccumulationRegister.Прибыль.StandardCommand.OpenByRecorder</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
+</Form>
