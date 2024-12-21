@@ -3707,7 +3707,7 @@
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:Type>v8:TypeDescription</v8:Type>
-						<v8:TypeSet>cfg:AnyRef</v8:TypeSet>
+						<v8:TypeSet>cfg:AnyIBRef</v8:TypeSet>
 						<v8:StringQualifiers>
 							<v8:Length>0</v8:Length>
 							<v8:AllowedLength>Variable</v8:AllowedLength>
@@ -3846,7 +3846,7 @@
 				</Column>
 				<Column name="Значение" id="3">
 					<Type>
-						<v8:TypeSet>cfg:AnyRef</v8:TypeSet>
+						<v8:TypeSet>cfg:AnyIBRef</v8:TypeSet>
 					</Type>
 				</Column>
 			</Columns>

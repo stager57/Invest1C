@@ -1723,7 +1723,7 @@
 		</Attribute>
 		<Attribute name="ВнешняяОбработкаСсылка" id="5">
 			<Type>
-				<v8:TypeSet>cfg:AnyRef</v8:TypeSet>
+				<v8:TypeSet>cfg:AnyIBRef</v8:TypeSet>
 			</Type>
 		</Attribute>
 		<Attribute name="ФильтрТаблицаСопоставления" id="14">

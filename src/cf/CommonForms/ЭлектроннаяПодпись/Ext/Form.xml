@@ -585,7 +585,7 @@
 		</Attribute>
 		<Attribute name="ПодписанныйОбъект" id="16">
 			<Type>
-				<v8:TypeSet>cfg:AnyRef</v8:TypeSet>
+				<v8:TypeSet>cfg:AnyIBRef</v8:TypeSet>
 			</Type>
 		</Attribute>
 		<Attribute name="ПорядковыйНомер" id="17">

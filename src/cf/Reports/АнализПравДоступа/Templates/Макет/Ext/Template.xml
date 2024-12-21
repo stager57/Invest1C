@@ -577,7 +577,7 @@
 				<order>true</order>
 			</attributeUseRestriction>
 			<valueType>
-				<v8:TypeSet xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:AnyRef</v8:TypeSet>
+				<v8:TypeSet xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:AnyIBRef</v8:TypeSet>
 			</valueType>
 		</field>
 		<field xsi:type="DataSetFieldField">
@@ -778,7 +778,7 @@
 			</attributeUseRestriction>
 			<presentationExpression>ВладелецИлиПользовательНастроекПредставление</presentationExpression>
 			<valueType>
-				<v8:TypeSet xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:AnyRef</v8:TypeSet>
+				<v8:TypeSet xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:AnyIBRef</v8:TypeSet>
 			</valueType>
 		</field>
 		<field xsi:type="DataSetFieldField">

@@ -1502,7 +1502,7 @@
 		</Attribute>
 		<Attribute name="ЗначениеКопирования" id="2">
 			<Type>
-				<v8:TypeSet>cfg:AnyRef</v8:TypeSet>
+				<v8:TypeSet>cfg:AnyIBRef</v8:TypeSet>
 			</Type>
 		</Attribute>
 		<Attribute name="ИмяСправочника" id="3">
@@ -1577,7 +1577,7 @@
 				</Column>
 				<Column name="Объект" id="5">
 					<Type>
-						<v8:TypeSet>cfg:AnyRef</v8:TypeSet>
+						<v8:TypeSet>cfg:AnyIBRef</v8:TypeSet>
 					</Type>
 				</Column>
 				<Column name="АдресПодписи" id="6">
@@ -2388,13 +2388,13 @@
 	<Parameters>
 		<Parameter name="Ключ">
 			<Type>
-				<v8:TypeSet>cfg:AnyRef</v8:TypeSet>
+				<v8:TypeSet>cfg:AnyIBRef</v8:TypeSet>
 			</Type>
 			<KeyParameter>true</KeyParameter>
 		</Parameter>
 		<Parameter name="ЗначениеКопирования">
 			<Type>
-				<v8:TypeSet>cfg:AnyRef</v8:TypeSet>
+				<v8:TypeSet>cfg:AnyIBRef</v8:TypeSet>
 			</Type>
 			<KeyParameter>true</KeyParameter>
 		</Parameter>
@@ -2405,7 +2405,7 @@
 		</Parameter>
 		<Parameter name="ПрисоединенныйФайл">
 			<Type>
-				<v8:TypeSet>cfg:AnyRef</v8:TypeSet>
+				<v8:TypeSet>cfg:AnyIBRef</v8:TypeSet>
 			</Type>
 			<KeyParameter>true</KeyParameter>
 		</Parameter>
@@ -2420,7 +2420,7 @@
 		</Parameter>
 		<Parameter name="ВладелецФайла">
 			<Type>
-				<v8:TypeSet>cfg:AnyRef</v8:TypeSet>
+				<v8:TypeSet>cfg:AnyIBRef</v8:TypeSet>
 			</Type>
 		</Parameter>
 		<Parameter name="РежимСоздания">
